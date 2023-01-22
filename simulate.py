@@ -5,6 +5,8 @@ import time
 #and draws the results to a Graphical User Interface (GUI).
 physicsClient = p.connect(p.GUI)
 
+p.loadSDF("box.sdf")
+
 for x in range(1000):
    print(x)
    p.stepSimulation()
