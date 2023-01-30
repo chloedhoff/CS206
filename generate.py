@@ -6,15 +6,27 @@ length = 1
 width = 1
 height = 1
 
-x = 0
-y = 0
+x = -1
+y = -1
 z = .5
 
-x2 = 1
-y2 = 0
-z2 = 1.5
+for xrange in range(5): 
+    x=x+1
+    y=-1
+    for yrange in range(5):
+    	y=y+1
+    	length = 1
+    	width = 1
+    	height = 1
+    	z = .5
+    	for i in range(10):
+            pyrosim.Send_Cube(name="Box", pos=[x,y,z] , size=[length,width,height])
+            z=z+1
+            length = length*.9
+            width = width*.9
+            height = height*.9
+      
 
-pyrosim.Send_Cube(name="Box", pos=[x,y,z] , size=[length,width,height])
-pyrosim.Send_Cube(name="Box2", pos=[x2,y2,z2] , size=[length,width,height])
+#pyrosim.Send_Cube(name="Box2", pos=[x2,y2,z2] , size=[length,width,height])
 
 pyrosim.End()
