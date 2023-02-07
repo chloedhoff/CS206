@@ -1,5 +1,7 @@
 import pyrosim.pyrosim as pyrosim
 
+pyrosim.Start_SDF("world.sdf")
+
 def Create_World():
    pyrosim.Start_SDF("world.sdf")
    pyrosim.Send_Cube(name="Box", pos=[x2,y2,z] , size=[length,width,height])
