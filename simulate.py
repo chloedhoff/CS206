@@ -4,10 +4,16 @@ import time
 import pybullet_data
 import pyrosim.pyrosim as pyrosim
 import numpy as np
+import random
+
+#variables
+amplitude = np.pi/4
+frequency = 1
+phaseOffset = 0
+
 
 #This creates an object, physicsClient, which handles the physics,
 #and draws the results to a Graphical User Interface (GUI).
-
 physicsClient = p.connect(p.GUI)
 p.setAdditionalSearchPath(pybullet_data.getDataPath())
 
@@ -20,6 +26,9 @@ pyrosim.Prepare_To_Simulate(robotId)
 
 FrontLegSensorValues = np.zeros(1000)
 TorsoSensorValues = np.zeros(1000)
+
+targetAngles= amplitude* np.sin( np.linspace(phaseOffset,frequency*np.pi, 1000))
+#np.save("data/targetAngles.npy", targetAngles)
 
 for x in range(1000):
    #print(x)
@@ -37,9 +46,9 @@ for x in range(1000):
 
    controlMode = p.POSITION_CONTROL,
 
-   targetPosition = .78539816339,
+   targetPosition = targetAngles[x],
 
-   maxForce = 500)
+   maxForce = 30)
 
 #motor form joint Torso_FrontLeg
 
@@ -51,9 +60,9 @@ for x in range(1000):
 
    controlMode = p.POSITION_CONTROL,
    
-   targetPosition = .78539816339,
+   targetPosition = -targetAngles[x],
    
-   maxForce = 500)
+   maxForce = 30)
 
    time.sleep(1/60)
 
