@@ -1,3 +1,4 @@
+
 import pybullet as p
 import time
 import pybullet_data
@@ -25,6 +26,35 @@ for x in range(1000):
    p.stepSimulation()
    FrontLegSensorValues[x] = pyrosim.Get_Touch_Sensor_Value_For_Link("FrontLeg") 
    TorsoSensorValues[x] = pyrosim.Get_Touch_Sensor_Value_For_Link("Torso")
+
+#motor form joint BackLeg_Torso
+   
+   pyrosim.Set_Motor_For_Joint(
+
+   bodyIndex = robotId,
+
+   jointName = 'BackLeg_Torso',
+
+   controlMode = p.POSITION_CONTROL,
+
+   targetPosition = .78539816339,
+
+   maxForce = 500)
+
+#motor form joint Torso_FrontLeg
+
+   pyrosim.Set_Motor_For_Joint(
+
+   bodyIndex = robotId,
+
+   jointName = 'Torso_FrontLeg',
+
+   controlMode = p.POSITION_CONTROL,
+   
+   targetPosition = .78539816339,
+   
+   maxForce = 500)
+
    time.sleep(1/60)
 
 
