@@ -6,12 +6,6 @@ import pyrosim.pyrosim as pyrosim
 import numpy as np
 import random
 
-#variables
-amplitude = np.pi/4
-frequency = 1
-phaseOffset = 0
-
-
 #This creates an object, physicsClient, which handles the physics,
 #and draws the results to a Graphical User Interface (GUI).
 physicsClient = p.connect(p.GUI)
@@ -27,8 +21,34 @@ pyrosim.Prepare_To_Simulate(robotId)
 FrontLegSensorValues = np.zeros(1000)
 TorsoSensorValues = np.zeros(1000)
 
-targetAngles= amplitude* np.sin( np.linspace(phaseOffset,frequency*np.pi, 1000))
+#variables
+amplitude = np.pi/4
+frequency = 10
+phaseOffset = 0
+
+targetAngles= amplitude* np.sin( np.linspace(phaseOffset,frequency*2*np.pi, 1000))
 #np.save("data/targetAngles.npy", targetAngles)
+
+#FronLeg- FL sin func
+
+#variables
+FLamplitude = np.pi/6
+FLfrequency =10
+FLphaseOffset = np.pi/2 
+
+FLtargetAngles=FLamplitude* np.sin( np.linspace(FLphaseOffset,FLfrequency*2*np.pi, 1000))
+np.save("data/FLtargetAngles.npy", FLtargetAngles)
+
+#BackLeg- BL sin func 
+
+#variables
+BLamplitude = np.pi/3   
+BLfrequency = 5
+BLphaseOffset = 0
+
+BLtargetAngles= BLamplitude* np.sin( np.linspace(BLphaseOffset,BLfrequency*2*np.pi, 
+1000))
+np.save("data/BLtargetAngles.npy", BLtargetAngles)
 
 for x in range(1000):
    #print(x)
@@ -46,9 +66,9 @@ for x in range(1000):
 
    controlMode = p.POSITION_CONTROL,
 
-   targetPosition = targetAngles[x],
+   targetPosition = BLtargetAngles[x],
 
-   maxForce = 30)
+   maxForce = 15)
 
 #motor form joint Torso_FrontLeg
 
@@ -60,9 +80,9 @@ for x in range(1000):
 
    controlMode = p.POSITION_CONTROL,
    
-   targetPosition = -targetAngles[x],
+   targetPosition = -FLtargetAngles[x],
    
-   maxForce = 30)
+   maxForce = 15)
 
    time.sleep(1/60)
 
