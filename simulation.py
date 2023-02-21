@@ -7,6 +7,7 @@ from world import WORLD
 from robot import ROBOT
 
 
+
 class SIMULATION:
     def __init__(self):
         self.physicsClient = p.connect(p.GUI)
@@ -20,38 +21,14 @@ class SIMULATION:
         for x in range(c.rounds):
             print(x)
             p.stepSimulation()
-            #FrontLegSensorValues[x] = pyrosim.Get_Touch_Sensor_Value_For_Link("FrontLeg") 
-            #TorsoSensorValues[x] = pyrosim.Get_Touch_Sensor_Value_For_Link("Torso")
-
-#motor form joint BackLeg_Torso
-   
-            #pyrosim.Set_Motor_For_Joint(
-
-            #bodyIndex = robotId,
-
-            #jointName = 'BackLeg_Torso',
-
-            #controlMode = p.POSITION_CONTROL,
-
-            #targetPosition = BLtargetAngles[x],
-
-            #maxForce =c.force)
-
-#motor form joint Torso_FrontLeg
-
-            #pyrosim.Set_Motor_For_Joint(
-
-            #bodyIndex = robotId,
-
-            #jointName = 'Torso_FrontLeg',
-
-            #controlMode = p.POSITION_CONTROL,
-   
-            #targetPosition = -FLtargetAngles[x],
-   
-            #maxForce = c.force)
-
+            self.robot.Sense(x)
+            self.robot.Act(self.robot, x)
             time.sleep(c.sleep)
+
+    def __del__(self):
+
+        p.disconnect()
+        self.robot.Save_Values()
 
 
 
