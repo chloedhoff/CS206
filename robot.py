@@ -31,8 +31,6 @@ class ROBOT:
     
 
     def Act(self,robot, x):
-       pass
        for motor in self.motors.values() :
             motor.Set_Value(robot, x) 
-
 

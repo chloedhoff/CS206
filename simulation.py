@@ -5,7 +5,8 @@ import constants as c
 import time
 from world import WORLD
 from robot import ROBOT
-
+from motor import MOTOR
+from sensor import SENSOR
 
 
 class SIMULATION:
@@ -29,6 +30,7 @@ class SIMULATION:
 
         p.disconnect()
         self.robot.Save_Values()
+     
 
 
 

@@ -16,5 +16,5 @@ class SENSOR:
              #print(self.values)
 
     def Save_Values(self):
-         numpy.save('data/SensorValue.npy', self.values)
+         np.save('data/SensorValue.npy', self.values)
          
