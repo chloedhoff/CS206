@@ -15,7 +15,7 @@ BLamplitude = np.pi/3
 BLfrequency = 5
 BLphaseOffset = 0
 
-force = 20
+force = 35
 
 sleep = 1/60
 

@@ -37,6 +37,7 @@ class MOTOR:
             controlMode = p.POSITION_CONTROL,
             targetPosition = -desiredAngle,
             maxForce =c.force)
+        
 
         
 

@@ -20,7 +20,7 @@ class SIMULATION:
 
     def Run(self):
         for x in range(c.rounds):
-            #print(x)
+            print(x)
             p.stepSimulation()
             self.robot.Sense(x)
             self.robot.Think()
@@ -29,9 +29,7 @@ class SIMULATION:
 
     def __del__(self):
 
-        p.disconnect()
-        self.robot.Save_Values()
-     
+        p.disconnect()    
 
 
 
