@@ -33,7 +33,7 @@ def Generate_Brain():
    pyrosim.Send_Sensor_Neuron(name = 2 , linkName = "FrontLeg")
    pyrosim.Send_Motor_Neuron( name = 3 , jointName = "BackLeg_Torso")
    pyrosim.Send_Motor_Neuron( name = 4 , jointName = "Torso_FrontLeg")
-   pyrosim.Send_Synapse( sourceNeuronName = 0 , targetNeuronName = 3 , weight = 1.0 )
+   '''pyrosim.Send_Synapse( sourceNeuronName = 0 , targetNeuronName = 3 , weight = 1.0 )
    pyrosim.Send_Synapse( sourceNeuronName = 1 , targetNeuronName = 3 , weight = 3 )
    pyrosim.Send_Synapse( sourceNeuronName = 0 , targetNeuronName = 4 , weight = 5 )
    pyrosim.Send_Synapse( sourceNeuronName = 2 , targetNeuronName = 4 , weight = 8 )
@@ -42,10 +42,9 @@ def Generate_Brain():
    #pyrosim.Send_Synapse( sourceNeuronName = 1 , targetNeuronName = 3 , weight = 1.6 )
    #pyrosim.Send_Synapse( sourceNeuronName = 0 , targetNeuronName = 4 , weight = 1 )
    #pyrosim.Send_Synapse( sourceNeuronName = 1 , targetNeuronName = 4 , weight = 7)'''
-   '''for i in range(3):
+   for i in range(3):
       for j in range(3,5):
          pyrosim.Send_Synapse(sourceNeuronName = i , targetNeuronName = j , weight = random.randrange(-1,1))
-'''
    pyrosim.End()
 
 

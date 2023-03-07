@@ -1,5 +1,5 @@
 import os
 
-for x in range(5):
+for x in range(0,5):
     os.system("python3 generate.py")
     os.system("python3 simulate.py")

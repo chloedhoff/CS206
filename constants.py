@@ -1,7 +1,7 @@
 import numpy as np
 
 gravity = -9.8
-rounds = 1000
+rounds = 200
 
 amplitude = np.pi/4
 frequency = 10
@@ -15,7 +15,7 @@ BLamplitude = np.pi/3
 BLfrequency = 5
 BLphaseOffset = 0
 
-force = 50
+force = 100
 
 sleep = 1/60
 
