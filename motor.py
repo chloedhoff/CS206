@@ -23,20 +23,20 @@ class MOTOR:
 
 
     def Set_Value(self, robot, desiredAngle):
-        if (self.jointName == "Torso_FrontLeg"):
-            pyrosim.Set_Motor_For_Joint(
-            bodyIndex = robot.robotId,
-            jointName = self.jointName,
-            controlMode = p.POSITION_CONTROL,
-            targetPosition = desiredAngle,
-            maxForce =c.force)
-        else:
+        #if (self.jointName == "Torso_FrontLeg"):
+        pyrosim.Set_Motor_For_Joint(
+        bodyIndex = robot.robotId,
+        jointName = self.jointName,
+        controlMode = p.POSITION_CONTROL,
+        targetPosition = desiredAngle,
+        maxForce =c.force)
+        '''else:
             pyrosim.Set_Motor_For_Joint(
             bodyIndex = robot.robotId,
             jointName = self.jointName,
             controlMode = p.POSITION_CONTROL,
             targetPosition = -desiredAngle,
-            maxForce =c.force)
+            maxForce =c.force)'''
         
 
         
