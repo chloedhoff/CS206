@@ -1,7 +1,7 @@
 import numpy as np
 
 gravity = -9.8
-rounds = 200
+rounds = 100
 
 amplitude = np.pi/4
 frequency = 10
@@ -19,3 +19,4 @@ force = 100
 
 sleep = 1/60
 
+numberOfGenerations = 10

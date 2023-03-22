@@ -57,7 +57,7 @@ class NEURON:
 
     def Allow_Presynaptic_Neuron_To_Influence_Me(self, preNeuronVal, weight):
         self.mult = weight*preNeuronVal
-        print(self.mult)
+        #print(self.mult)
         self.TotalSum  = self.Add_To_Value(self.mult)
         return self.TotalSum
 
@@ -74,7 +74,7 @@ class NEURON:
                 self.Allow_Presynaptic_Neuron_To_Influence_Me(neurons[key[0]].Get_Value(), synapses[key].Get_Weight())
         
         self.Threshold()
-        print(self.Get_Value())
+        #print(self.Get_Value())
         #exit()
 
 

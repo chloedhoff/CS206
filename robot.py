@@ -28,7 +28,7 @@ class ROBOT:
     def Prepare_To_Act(self):
         self.motors={}
         for jointName in pyrosim.jointNamesToIndices:
-            print(jointName)
+            #print(jointName)
             self.motors[jointName] = MOTOR(jointName)
     
 
@@ -38,13 +38,25 @@ class ROBOT:
                self.jointName = self.nn.Get_Motor_Neurons_Joint(neuronName)
                self.desiredAngle = self.nn.Get_Value_Of(neuronName)
                self.motors[self.jointName].Set_Value(robot, self.desiredAngle)
-               print(neuronName+" : "+self.jointName)
-               print(self.desiredAngle)
+               #print(neuronName+" : "+self.jointName)
+               #print(self.desiredAngle)
        #for motor in self.motors.values() :
             #print(motor)
             #motor.Set_Value(robot, x)
 
     def Think(self):
         self.nn.Update()
-        self.nn.Print()
+#####Printing neural network#####
+        #self.nn.Print()
+
+    def Get_Fitness(self):
+        stateOfLinkZero = p.getLinkState(self.robotId,0)
+        #print(self.stateOfLinkZero)
+        positionOfLinkZero = stateOfLinkZero[0]
+        xCoordinateOfLinkZero = positionOfLinkZero[0]
+        #print(xCoordinateOfLinkZero)
+        file = open("fitness.txt","w")
+        file.write(str(xCoordinateOfLinkZero))
+        file.close()
+        #exit()
 
