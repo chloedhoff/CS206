@@ -8,12 +8,13 @@ class SOLUTION:
     def __init__(self):
         self.weights = np.random.rand(3,2)
         self.weights= self.weights*2 -1
+        print(self.weights)
 
     def Evaluate(self, evalType):
         self.Create_World()
         self.Create_Body()
         self.Create_Brain()
-        os.system("python3 simulate.py"+evalType)
+        os.system("python3 simulate.py "+evalType)
         f = open("fitness.txt","r")
         self.fitness = float(f.read())
         f.close()
