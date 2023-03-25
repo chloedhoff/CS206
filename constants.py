@@ -15,8 +15,10 @@ BLamplitude = np.pi/3
 BLfrequency = 5
 BLphaseOffset = 0
 
-force = 30
+force = 20
 
 sleep = 1/60
 
 numberOfGenerations = 10
+
+populationSize = 2

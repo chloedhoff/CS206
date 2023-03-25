@@ -10,8 +10,9 @@ from sensor import SENSOR
 
 
 class SIMULATION:
-    def __init__(self, directOrGUI):
-        if(directOrGUI == "DIRECT"):
+    def __init__(self, directOrGUI, solutionID):
+        self.directOrGUI = directOrGUI
+        if(self.directOrGUI == "DIRECT"):
             #self.physicsClient = p.connect(p.DIRECT)
             p.connect(p.DIRECT)
         else:
@@ -19,7 +20,7 @@ class SIMULATION:
         p.setAdditionalSearchPath(pybullet_data.getDataPath())
         p.setGravity(0,0,c.gravity)
         self.world = WORLD()
-        self.robot = ROBOT()
+        self.robot = ROBOT(solutionID)
         #pyrosim.Prepare_To_Simulate(robotId)
 
     def Run(self):
@@ -29,7 +30,8 @@ class SIMULATION:
             self.robot.Sense(x)
             self.robot.Think()
             self.robot.Act(self.robot, x)
-            time.sleep(c.sleep)
+            if (self.directOrGUI == "GUI"):
+                time.sleep(c.sleep)
 
     def Get_Fitness(self):
         self.robot.Get_Fitness()
