@@ -29,7 +29,7 @@ class SOLUTION:
         self.fitness = float(f.read())
         print(self.fitness)
         f.close()
-        os.system("rm fitness"+str(self.myID)+".nndf")
+        os.system("rm fitness"+str(self.myID)+".txt")
         
 
     def Create_World(self):

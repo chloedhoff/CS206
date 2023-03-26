@@ -7,6 +7,7 @@ from world import WORLD
 from robot import ROBOT
 from motor import MOTOR
 from sensor import SENSOR
+import os
 
 
 class SIMULATION:
@@ -37,7 +38,8 @@ class SIMULATION:
         self.robot.Get_Fitness()
 
     def __del__(self):
-
+        #for x in range(c.populationSize):
+         #   os.system("rm fitness"+str(x)+".txt")
         p.disconnect()    
 
 
