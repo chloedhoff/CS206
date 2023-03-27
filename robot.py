@@ -66,5 +66,5 @@ class ROBOT:
         file.write(str(xCoordinateOfLinkZero))
         file.close()
         os.system("mv tmp"+str(self.solutionID)+".txt fitness"+str(self.solutionID)+".txt")
-        #exit()
+        exit()
 

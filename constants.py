@@ -21,4 +21,4 @@ sleep = 1/60
 
 numberOfGenerations = 10
 
-populationSize = 3
+populationSize = 10

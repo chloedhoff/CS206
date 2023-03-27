@@ -13,9 +13,9 @@ directOrGUI = sys.argv[1]
 solutionID = sys.argv[2]
 
 simulation = SIMULATION(directOrGUI , solutionID)
-simulation.Get_Fitness()
-simulation.Run()
 
+simulation.Run()
+simulation.Get_Fitness()
 
 
 

@@ -3,14 +3,15 @@ import pyrosim.pyrosim as pyrosim
 import constants as c
 import os
 import random
+import time
 
 class SOLUTION:
     def __init__(self, ID):
         self.myID = ID
-        print(self.myID)
+        #print(self.myID)
         self.weights = np.random.rand(3,2)
         self.weights= self.weights*2 -1
-        print(self.weights)
+        #print(self.weights)
 
     #def Evaluate(self, directOrGUI):
     
@@ -23,11 +24,12 @@ class SOLUTION:
 
 
     def Wait_For_Simulation_To_End(self):
-        f = open("fitness"+str(self.myID)+".txt","r")
         while not os.path.exists("fitness"+str(self.myID)+".txt"):
             time.sleep(0.01)
+
+        f = open("fitness"+str(self.myID)+".txt","r")
         self.fitness = float(f.read())
-        print(self.fitness)
+        #print(self.fitness)
         f.close()
         os.system("rm fitness"+str(self.myID)+".txt")
         
