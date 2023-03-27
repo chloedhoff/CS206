@@ -19,6 +19,9 @@ force = 20
 
 sleep = 1/60
 
-numberOfGenerations = 10
+numberOfGenerations = 1
 
-populationSize = 10
+populationSize = 1
+
+numSensorNeurons = 3
+numMotorNeurons = 2
