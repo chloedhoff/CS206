@@ -15,13 +15,13 @@ BLamplitude = np.pi/3
 BLfrequency = 5
 BLphaseOffset = 0
 
-force = 20
+force = 30
 
 sleep = 1/60
 
-numberOfGenerations = 1
+numberOfGenerations = 10
 
-populationSize = 1
+populationSize = 10
 
 numSensorNeurons = 4
 numMotorNeurons = 8
