@@ -12,6 +12,7 @@ class MOTOR:
         self.Prepare_To_Act()
 
     def Prepare_To_Act(self):    
+        self.frequency = 10
         if (self.jointName == "BackLeg_Torso"):
             self.frequency = 10
         if (self.jointName == "Torso_FrontLeg"):
