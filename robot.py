@@ -23,10 +23,16 @@ class ROBOT:
             #print(linkName)
             self.sensors[linkName] = SENSOR(linkName)
             
-    def Sense(self, x):        
-        #TorsoSensorValues[x] = pyrosim.Get_Touch_Sensor_Value_For_Link("Torso")
+
+    #goal is to overwrite sensor neuron with sin signal
+    #t is time step
+    def Sense(self, t):        
+        #TorsoSensorValues[t] = pyrosim.Get_Touch_Sensor_Value_For_Link("Torso")
+        #print(self.sensors)
+        #overwrite ONE touch sensor with sin(xt) where x is set my user
         for sensor in self.sensors.values() :
-            sensor.Get_Value(x)
+            sensor.Get_Value(t)
+            #print(sensor.Get_Value(t))
 
 
     def Prepare_To_Act(self):
@@ -54,17 +60,20 @@ class ROBOT:
         #self.nn.Print()
 
     def Get_Fitness(self):
-        stateOfLinkZero = p.getLinkState(self.robotId,0)
-        #print(stateOfLinkZero)
-        #print(self.stateOfLinkZero)
-        positionOfLinkZero = stateOfLinkZero[0]
-        #print(positionOfLinkZero)
-        xCoordinateOfLinkZero = positionOfLinkZero[0]
-        #print(xCoordinateOfLinkZero)
+        #stateOfLinkZero = p.getLinkState(self.robotId,0)
+        #positionOfLinkZero = stateOfLinkZero[0]
+        #xCoordinateOfLinkZero = positionOfLinkZero[0]
+
+        #replaced above with below
+        #the horizontal position og the backleg of qudraped
+        basePositionAndOrientation = p.getBasePositionAndOrientation(self.robotId)
+        #the horizontal position of torso
+        basePosition = basePositionAndOrientation[0]
+        xPosition = basePosition[0]
 
         #file = open("fitness"+str(self.solutionID)+".txt","w")
         file = open("tmp"+str(self.solutionID)+".txt","w")
-        file.write(str(xCoordinateOfLinkZero))
+        file.write(str(xPosition))
         file.close()
         os.system("mv tmp"+str(self.solutionID)+".txt fitness"+str(self.solutionID)+".txt")
         exit()
