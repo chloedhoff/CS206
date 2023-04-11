@@ -1,7 +1,7 @@
 import numpy as np
 
 gravity = -9.8
-rounds = 300
+rounds = 500
 
 amplitude = np.pi/4
 frequency = 10
