@@ -19,6 +19,7 @@ simulation.Get_Fitness()
 
 
 
+
 #FrontLegSensorValues = np.zeros(c.rounds)
 #TorsoSensorValues = np.zeros(c.rounds)
 
